@@ -1,15 +1,5 @@
 import { describe, expect, it } from "@jest/globals";
-import {
-  MockLuaMap,
-  MockLuaTable,
-  mockLfs,
-  mockMarshal,
-  mockMath,
-  mockString,
-  mockTable,
-  mockPcall,
-  mockRange,
-} from "xray16/mocks";
+import { MockLuaMap, MockLuaTable, mockLfs, mockMarshal, mockMath, mockString, mockTable } from "xray16/mocks";
 
 import { setupLuaGlobals } from "./setup-lua-globals";
 
