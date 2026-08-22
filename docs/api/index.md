@@ -1,6 +1,6 @@
 # API Reference
 
-The [X-Ray 16 engine API](https://xray-forge.github.io/stalker-xrf-xray16-sdk/api/types/) is the primary reference for game globals, luabind classes, UI and GOAP classes, and script objects. The rest of this generated reference covers the remaining published `xray16` package surfaces.
+The [X-Ray 16 engine API](https://xray-forge.github.io/xrf-xray16-sdk/api/types/) is the primary reference for game globals, luabind classes, UI and GOAP classes, and script objects. The rest of this generated reference covers the remaining published `xray16` package surfaces.
 
 | Package                              | Description                                                                              |
 | ------------------------------------ | ---------------------------------------------------------------------------------------- |

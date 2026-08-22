@@ -6,12 +6,12 @@
   "author": "Neloreck",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xray-forge/stalker-xrf-xray16-sdk.git"
+    "url": "git+https://github.com/xray-forge/xrf-xray16-sdk.git"
   },
   "bugs": {
-    "url": "https://github.com/xray-forge/stalker-xrf-xray16-sdk/issues"
+    "url": "https://github.com/xray-forge/xrf-xray16-sdk/issues"
   },
-  "homepage": "https://xray-forge.github.io/stalker-xrf-xray16-sdk/index.html",
+  "homepage": "https://xray-forge.github.io/xrf-xray16-sdk/index.html",
   "keywords": [
     "stalker",
     "xray",

@@ -1,6 +1,6 @@
 # Getting Started
 
-`xray16` provides TypeScript declarations, Node test helpers, and TypeScriptToLua plugins for Lua-visible X-Ray 16 APIs. Use it to compile XRF game scripts from TypeScript, including with [stalker-xrf-engine](https://github.com/xray-forge/stalker-xrf-engine).
+`xray16` provides TypeScript declarations, Node test helpers, and TypeScriptToLua plugins for Lua-visible X-Ray 16 APIs. Use it to compile XRF game scripts from TypeScript, including with [xrf-engine](https://github.com/xray-forge/xrf-engine).
 
 ## Install
 
@@ -27,10 +27,10 @@ Add the base declarations to `compilerOptions.types`. Include only the ambient t
 }
 ```
 
-For an unreleased build, install `xray16@experimental` from npm or use the rolling [nightly GitHub release](https://github.com/xray-forge/stalker-xrf-xray16-sdk/releases/tag/nightly):
+For an unreleased build, install `xray16@experimental` from npm or use the rolling [nightly GitHub release](https://github.com/xray-forge/xrf-xray16-sdk/releases/tag/nightly):
 
 ```sh
-npm install https://github.com/xray-forge/stalker-xrf-xray16-sdk/releases/download/nightly/xray16-nightly.tgz
+npm install https://github.com/xray-forge/xrf-xray16-sdk/releases/download/nightly/xray16-nightly.tgz
 ```
 
 ## Entry points

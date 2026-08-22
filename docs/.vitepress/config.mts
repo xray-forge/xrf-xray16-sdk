@@ -1,7 +1,7 @@
 import { defineConfig } from "vitepress";
 
 export default defineConfig({
-  base: "/stalker-xrf-xray16-sdk/",
+  base: "/xrf-xray16-sdk/",
   title: "XRF X-Ray 16 SDK",
   description: "TypeScript declarations, test helpers, and TypeScriptToLua plugins for Lua-visible X-Ray 16 APIs.",
   outDir: "../target/docs",
@@ -69,7 +69,7 @@ export default defineConfig({
       },
     ],
     socialLinks: [
-      { icon: "github", link: "https://github.com/xray-forge/stalker-xrf-xray16-sdk" },
+      { icon: "github", link: "https://github.com/xray-forge/xrf-xray16-sdk" },
       { icon: "npm", link: "https://www.npmjs.com/package/xray16" },
     ],
   },

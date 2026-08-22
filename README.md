@@ -1,13 +1,13 @@
 # XRF X-Ray 16 SDK
 
 [![npm version](https://img.shields.io/npm/v/xray16)](https://www.npmjs.com/package/xray16)
-[![sdk](https://img.shields.io/badge/docs-sdk-blue.svg?style=flat)](https://xray-forge.github.io/stalker-xrf-xray16-sdk/api/types/)
-[![book](https://img.shields.io/badge/docs-book-blue.svg?style=flat)](https://xray-forge.github.io/stalker-xrf-book)
-[![Node.js CI](https://github.com/xray-forge/stalker-xrf-xray16-sdk/actions/workflows/build_and_test.yml/badge.svg)](https://github.com/xray-forge/stalker-xrf-xray16-sdk/actions/workflows/build_and_test.yml)
+[![sdk](https://img.shields.io/badge/docs-sdk-blue.svg?style=flat)](https://xray-forge.github.io/xrf-xray16-sdk/api/types/)
+[![book](https://img.shields.io/badge/docs-book-blue.svg?style=flat)](https://xray-forge.github.io/xrf-book)
+[![Node.js CI](https://github.com/xray-forge/xrf-xray16-sdk/actions/workflows/build_and_test.yml/badge.svg)](https://github.com/xray-forge/xrf-xray16-sdk/actions/workflows/build_and_test.yml)
 
-`xray16` provides TypeScript declarations, test helpers, and TypeScriptToLua plugins for Lua-visible X-Ray 16 APIs. Use it when compiling XRF game scripts from TypeScript, including with [stalker-xrf-engine](https://github.com/xray-forge/stalker-xrf-engine).
+`xray16` provides TypeScript declarations, test helpers, and TypeScriptToLua plugins for Lua-visible X-Ray 16 APIs. Use it when compiling XRF game scripts from TypeScript, including with [xrf-engine](https://github.com/xray-forge/xrf-engine).
 
-[X-Ray 16 engine API](https://xray-forge.github.io/stalker-xrf-xray16-sdk/api/types/) documents game globals, luabind classes, UI and GOAP classes, and script objects.
+[X-Ray 16 engine API](https://xray-forge.github.io/xrf-xray16-sdk/api/types/) documents game globals, luabind classes, UI and GOAP classes, and script objects.
 
 ## Quick start
 
@@ -34,10 +34,10 @@ Add the base declarations to `compilerOptions.types`. Include only the ambient t
 }
 ```
 
-For an unreleased build, install `xray16@experimental` from npm, or use the rolling [nightly GitHub release](https://github.com/xray-forge/stalker-xrf-xray16-sdk/releases/tag/nightly):
+For an unreleased build, install `xray16@experimental` from npm, or use the rolling [nightly GitHub release](https://github.com/xray-forge/xrf-xray16-sdk/releases/tag/nightly):
 
 ```sh
-npm install https://github.com/xray-forge/stalker-xrf-xray16-sdk/releases/download/nightly/xray16-nightly.tgz
+npm install https://github.com/xray-forge/xrf-xray16-sdk/releases/download/nightly/xray16-nightly.tgz
 ```
 
 ## Entry points
@@ -206,7 +206,7 @@ See the [`luabind` plugin README](docs/plugins/luabind.md) for constructor and i
 
 ## API documentation and development
 
-The documentation website is available at [xray-forge.github.io/stalker-xrf-xray16-sdk](https://xray-forge.github.io/stalker-xrf-xray16-sdk/index.html) — guides, plugin pages, and a generated API reference per package surface. Declarations describe the TypeScript-visible API shape; C++ engine bindings define runtime behavior. Check the engine source when declaration syntax is ambiguous.
+The documentation website is available at [xray-forge.github.io/xrf-xray16-sdk](https://xray-forge.github.io/xrf-xray16-sdk/index.html) — guides, plugin pages, and a generated API reference per package surface. Declarations describe the TypeScript-visible API shape; C++ engine bindings define runtime behavior. Check the engine source when declaration syntax is ambiguous.
 
 To refresh local binding dumps, run the game engine with `-dump_bindings`, open the generated `scriptbindings_*.txt` files in the user data directory, and compare them with this package's declarations.
 
