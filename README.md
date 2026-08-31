@@ -1,3 +1,5 @@
+<img src="https://xray-forge.github.io/xrf-book/images/xrf-xray16-sdk-banner%400.5x.png">
+
 # XRF X-Ray 16 SDK
 
 [![npm version](https://img.shields.io/npm/v/xray16)](https://www.npmjs.com/package/xray16)
