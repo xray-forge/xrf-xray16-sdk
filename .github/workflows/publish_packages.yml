@@ -19,6 +19,10 @@ concurrency:
   group: publish-packages
   cancel-in-progress: false
 
+env:
+  npm_config_audit: "false"
+  npm_config_fund: "false"
+
 jobs:
   publish:
     name: Publish package

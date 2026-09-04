@@ -2,6 +2,8 @@ name: Deploy Docs
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+  npm_config_audit: "false"
+  npm_config_fund: "false"
 
 on:
   workflow_dispatch:
