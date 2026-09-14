@@ -490,6 +490,13 @@ declare module "xray16" {
      * @since OpenXRay 2015-06-13, d0323b3a
      */
     public static readonly on_use_vehicle: 47;
+
+    /**
+     * Engine enum value for `callback.inventory_info_removed`.
+     *
+     * @since OpenXRay 2026-09-14, 8712c310, PR #2114
+     */
+    public static readonly inventory_info_removed: 52;
   }
 
   /**
@@ -655,6 +662,20 @@ declare module "xray16" {
      */
     public set_callback<T extends AnyObject>(
       type: TXR_callbacks["inventory_info"],
+      cb?: Nillable<(this: void, npc: game_object, info_id: string) => void>,
+      object?: Nillable<T>
+    ): void;
+
+    /**
+     * Fired when the actor loses an info portion.
+     *
+     * @source `src/xrGame/actor_communication.cpp`, `CActor::OnDisableInfo`.
+     *
+     * @remarks
+     * Fires only when the info portion was actually present, so repeated disables emit once.
+     */
+    public set_callback<T extends AnyObject>(
+      type: TXR_callbacks["inventory_info_removed"],
       cb?: Nillable<(this: void, npc: game_object, info_id: string) => void>,
       object?: Nillable<T>
     ): void;

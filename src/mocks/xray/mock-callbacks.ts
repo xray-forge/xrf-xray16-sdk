@@ -57,4 +57,5 @@ export const mockCallbacks = {
   weapon_zoom_in: 51,
   weapon_zoom_out: 52,
   weapon_jammed: 53,
+  inventory_info_removed: 54,
 };
