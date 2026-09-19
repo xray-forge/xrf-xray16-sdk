@@ -70,10 +70,7 @@ function isAmbientRuntimeSymbol(symbol: ts.Symbol): boolean {
 function isInlineableAccessBase(checker: ts.TypeChecker, node: ts.Identifier): boolean {
   const parent: ts.Node | undefined = node.parent;
 
-  if (
-    (ts.isPropertyAccessExpression(parent) || ts.isElementAccessExpression(parent)) &&
-    parent.expression === node
-  ) {
+  if ((ts.isPropertyAccessExpression(parent) || ts.isElementAccessExpression(parent)) && parent.expression === node) {
     const member: ts.Symbol | null = resolveMemberSymbol(checker, parent);
 
     return member !== null && tryGetInlineValue(checker, member) !== null;

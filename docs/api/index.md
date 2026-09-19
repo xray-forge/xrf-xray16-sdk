@@ -1,6 +1,8 @@
 # API Reference
 
-The [X-Ray 16 engine API](https://xray-forge.github.io/xrf-xray16-sdk/api/types/) is the primary reference for game globals, luabind classes, UI and GOAP classes, and script objects. The rest of this generated reference covers the remaining published `xray16` package surfaces.
+The [X-Ray 16 engine API](https://xray-forge.github.io/xrf-xray16-sdk/api/types/) is the primary reference for game
+globals, luabind classes, UI and GOAP classes, and script objects. The rest of this generated reference covers the
+remaining published `xray16` package surfaces.
 
 | Package                              | Description                                                                              |
 | ------------------------------------ | ---------------------------------------------------------------------------------------- |
@@ -11,4 +13,5 @@ The [X-Ray 16 engine API](https://xray-forge.github.io/xrf-xray16-sdk/api/types/
 | [xray16/testing](./testing/index.md) | Jest configuration factory, setup helpers, and matchers.                                 |
 | [xray16/mocks](./mocks/index.md)     | Lua-like runtime helpers and engine class mocks for Node-based tests.                    |
 
-Declarations describe the TypeScript-visible API shape. C++ engine bindings define runtime behavior, so check the engine source when declaration syntax is ambiguous.
+Declarations describe the TypeScript-visible API shape. C++ engine bindings define runtime behavior, so check the engine
+source when declaration syntax is ambiguous.

@@ -2,7 +2,9 @@
 
 Use `xray16/plugins/luabind` to transform classes marked with `@LuabindClass()` into luabind class declarations.
 
-Default TypeScriptToLua classes use prototype tables and metatables. Engine classes that extend C++ objects need the luabind `class()` API so virtual overrides are registered with the engine. This plugin emits that form for decorated classes and leaves other classes to the default transform.
+Default TypeScriptToLua classes use prototype tables and metatables. Engine classes that extend C++ objects need the
+luabind `class()` API so virtual overrides are registered with the engine. This plugin emits that form for decorated
+classes and leaves other classes to the default transform.
 
 ```ts
 declare function LuabindClass(): ClassDecorator;
@@ -59,7 +61,8 @@ export class Child extends Base {
 
 With `"reference"`, `Child.__init` calls `Base.__init(self, "child")`. With `"luabind"`, it calls `super("child")`.
 
-The setting only affects constructor calls. `super.method()` always emits a direct base class reference, such as `Base.method(self)`, because luabind has no global for arbitrary parent methods.
+The setting only affects constructor calls. `super.method()` always emits a direct base class reference, such as
+`Base.method(self)`, because luabind has no global for arbitrary parent methods.
 
 ## Supported output
 
@@ -79,5 +82,6 @@ These produce build errors instead of silent miscompiles:
 
 ## Limitations
 
-- Inheritance and `super` require the base class to be a non-exported local identifier in the same module. An exported base fails with `Super without identifier - not supported with luabind`.
+- Inheritance and `super` require the base class to be a non-exported local identifier in the same module. An exported
+  base fails with `Super without identifier - not supported with luabind`.
 - The decorator is matched by name. Renaming or aliasing `@LuabindClass()` is not detected.

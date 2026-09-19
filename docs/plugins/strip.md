@@ -2,7 +2,8 @@
 
 Use `xray16/plugins/strip` to remove selected constructs from TypeScriptToLua output.
 
-Use it to keep release Lua smaller and to erase imports that only exist for TypeScript typing. The plugin reads its options from the `luaPlugins` entry.
+Use it to keep release Lua smaller and to erase imports that only exist for TypeScript typing. The plugin reads its
+options from the `luaPlugins` entry.
 
 ```json
 { "name": "xray16/plugins/strip", "luaLogger": true, "engineImports": true }
@@ -14,7 +15,8 @@ Use it to keep release Lua smaller and to erase imports that only exist for Type
 
 Removes `LuaLogger` declarations and method calls.
 
-When `luaLogger` is unset, the plugin falls back to `XR_NO_LUA_LOGS=true` or the `--no-lua-logs` CLI flag. If neither fallback is set, logger calls are kept.
+When `luaLogger` is unset, the plugin falls back to `XR_NO_LUA_LOGS=true` or the `--no-lua-logs` CLI flag. If neither
+fallback is set, logger calls are kept.
 
 What it removes:
 
@@ -46,7 +48,8 @@ The logger declaration and call are removed from the emitted Lua. `kept` and the
 
 Removes runtime imports and star re-exports for engine declaration modules.
 
-Defaults to `true`. This matters because `xray16` and `xray16/alias` describe engine globals and aliases; they do not have Lua modules that can be required in the game runtime.
+Defaults to `true`. This matters because `xray16` and `xray16/alias` describe engine globals and aliases; they do not
+have Lua modules that can be required in the game runtime.
 
 The plugin erases:
 

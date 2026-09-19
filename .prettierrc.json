@@ -4,5 +4,6 @@
   "printWidth": 120,
   "semi": true,
   "endOfLine": "lf",
+  "proseWrap": "always",
   "singleQuote": false
 }

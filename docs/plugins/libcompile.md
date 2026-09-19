@@ -1,8 +1,11 @@
 # libcompile Plugin
 
-Use `xray16/plugins/libcompile` when a game build imports runtime helpers from `xray16/lib`. It emits the library as a flat Lua module named `xray_bundle`.
+Use `xray16/plugins/libcompile` when a game build imports runtime helpers from `xray16/lib`. It emits the library as a
+flat Lua module named `xray_bundle`.
 
-Map `xray16/lib` to the package TypeScript source to let the `inline` plugin fold `@inline` helpers. TypeScriptToLua may still generate requires for non-inlined helpers such as `round` and `range`; this plugin makes those requires resolve at runtime.
+Map `xray16/lib` to the package TypeScript source to let the `inline` plugin fold `@inline` helpers. TypeScriptToLua may
+still generate requires for non-inlined helpers such as `round` and `range`; this plugin makes those requires resolve at
+runtime.
 
 ## Setup
 
@@ -43,8 +46,7 @@ export function normalize(value: number): number {
 }
 ```
 
-With `inline` and `libcompile` enabled, `clamp` can be folded at the call site and `round` resolves from
-`xray_bundle`.
+With `inline` and `libcompile` enabled, `clamp` can be folded at the call site and `round` resolves from `xray_bundle`.
 
 ## No-op Cases
 

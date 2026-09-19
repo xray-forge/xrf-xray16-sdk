@@ -79,13 +79,13 @@ export class MockCCar extends MockCGameObject implements CCar {
 
   public get_fuel = jest.fn(() => this.fuel) as unknown as jest.MockedFunction<CCar["get_fuel"]>;
 
-  public GetfFuelConsumption = jest.fn(
-    () => this.fuelConsumption
-  ) as unknown as jest.MockedFunction<CCar["GetfFuelConsumption"]>;
+  public GetfFuelConsumption = jest.fn(() => this.fuelConsumption) as unknown as jest.MockedFunction<
+    CCar["GetfFuelConsumption"]
+  >;
 
-  public get_fuel_consumption = jest.fn(
-    () => this.fuelConsumption
-  ) as unknown as jest.MockedFunction<CCar["get_fuel_consumption"]>;
+  public get_fuel_consumption = jest.fn(() => this.fuelConsumption) as unknown as jest.MockedFunction<
+    CCar["get_fuel_consumption"]
+  >;
 
   public GetfFuelTank = jest.fn(() => this.fuelTank) as unknown as jest.MockedFunction<CCar["GetfFuelTank"]>;
 
@@ -95,9 +95,9 @@ export class MockCCar extends MockCGameObject implements CCar {
 
   public HasWeapon = jest.fn(() => this.hasWeapon) as unknown as jest.MockedFunction<CCar["HasWeapon"]>;
 
-  public IsObjectVisible = jest.fn(
-    () => this.isObjectVisible
-  ) as unknown as jest.MockedFunction<CCar["IsObjectVisible"]>;
+  public IsObjectVisible = jest.fn(() => this.isObjectVisible) as unknown as jest.MockedFunction<
+    CCar["IsObjectVisible"]
+  >;
 
   public PlayDamageParticles = jest.fn() as unknown as jest.MockedFunction<CCar["PlayDamageParticles"]>;
 

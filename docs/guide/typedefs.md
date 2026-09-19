@@ -1,6 +1,7 @@
 # Ambient Typedefs
 
-Ambient typedefs describe X-Ray globals and bundled Lua libraries. They are not modules to import. Add the entries your runtime provides to `compilerOptions.types`, or reference them with `/// <reference types="..." />`.
+Ambient typedefs describe X-Ray globals and bundled Lua libraries. They are not modules to import. Add the entries your
+runtime provides to `compilerOptions.types`, or reference them with `/// <reference types="..." />`.
 
 | Typedef                      | Provides                                                                                                      |
 | ---------------------------- | ------------------------------------------------------------------------------------------------------------- |

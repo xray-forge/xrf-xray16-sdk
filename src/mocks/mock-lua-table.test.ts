@@ -65,7 +65,14 @@ describe("MockLuaTable", () => {
 
   it("should measure size for tables, maps and plain objects", () => {
     expect(MockLuaTable.getSizeOf(MockLuaTable.fromArray([1, 2, 3]))).toBe(3);
-    expect(MockLuaTable.getSizeOf(new Map([["a", 1], ["b", 2]]))).toBe(2);
+    expect(
+      MockLuaTable.getSizeOf(
+        new Map([
+          ["a", 1],
+          ["b", 2],
+        ])
+      )
+    ).toBe(2);
     expect(MockLuaTable.getSizeOf({ a: 1, b: 2 })).toBe(2);
   });
 

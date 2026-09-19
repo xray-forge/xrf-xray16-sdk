@@ -1,6 +1,7 @@
 # TypeScriptToLua Plugins
 
-Plugins are opt-in TypeScriptToLua build transforms. Enable only the plugins your project uses. An XRF build that needs every SDK transformation uses this order:
+Plugins are opt-in TypeScriptToLua build transforms. Enable only the plugins your project uses. An XRF build that needs
+every SDK transformation uses this order:
 
 ```jsonc
 {
@@ -28,7 +29,8 @@ Plugins are opt-in TypeScriptToLua build transforms. Enable only the plugins you
 | [`libcompile`](./libcompile) | Emit `xray16/lib` source as a flat `xray_bundle` module.               |
 | [`tracy`](./tracy)           | Inject Tracy profiler zones.                                           |
 
-When their config fields are unset, `strip.luaLogger` falls back to `XR_NO_LUA_LOGS=true` or `--no-lua-logs`, and `tracy.enabled` falls back to `XR_INJECT_TRACY_ZONES=true` or `--inject-tracy-zones`.
+When their config fields are unset, `strip.luaLogger` falls back to `XR_NO_LUA_LOGS=true` or `--no-lua-logs`, and
+`tracy.enabled` falls back to `XR_INJECT_TRACY_ZONES=true` or `--inject-tracy-zones`.
 
 ## Luabind classes
 

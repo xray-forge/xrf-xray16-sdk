@@ -16,7 +16,8 @@ export function readConfig(value: unknown): LuaTable<string, string> {
 }
 ```
 
-The [`macros` plugin](../plugins/macros) removes the import and folds helper usage in game builds. The shipped runtime module supports the same imports under Jest and Node.
+The [`macros` plugin](../plugins/macros) removes the import and folds helper usage in game builds. The shipped runtime
+module supports the same imports under Jest and Node.
 
 See the [macros API reference](../api/macros/) for every helper.
 
@@ -32,7 +33,9 @@ export function normalizeSection(section: TSection, value: number): string {
 }
 ```
 
-Type aliases erase at build time, and `@inline` constants can fold with the [`inline` plugin](../plugins/inline). Runtime helpers such as `round` and `range` need a Lua module in game builds; enable [`libcompile`](../plugins/libcompile) when compiling gamedata from `xray16/lib` source.
+Type aliases erase at build time, and `@inline` constants can fold with the [`inline` plugin](../plugins/inline).
+Runtime helpers such as `round` and `range` need a Lua module in game builds; enable
+[`libcompile`](../plugins/libcompile) when compiling gamedata from `xray16/lib` source.
 
 See the [lib API reference](../api/lib/) for the full surface.
 

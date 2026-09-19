@@ -1,6 +1,7 @@
 # Testing
 
-Run X-Ray script code under Node with Jest. Install the optional `jest`, `ts-jest`, and `typescript` peer dependencies first.
+Run X-Ray script code under Node with Jest. Install the optional `jest`, `ts-jest`, and `typescript` peer dependencies
+first.
 
 ## Jest configuration
 
@@ -16,13 +17,17 @@ module.exports = createJestConfig({
 });
 ```
 
-It installs Lua-like globals and the `xray16` module mock before each test file, then registers matchers such as `toBeNil`, `toEqualLuaTables`, and `toEqualLuaArrays`. Add `xray16/typedefs/jest` to `compilerOptions.types` to type-check them.
+It installs Lua-like globals and the `xray16` module mock before each test file, then registers matchers such as
+`toBeNil`, `toEqualLuaTables`, and `toEqualLuaArrays`. Add `xray16/typedefs/jest` to `compilerOptions.types` to
+type-check them.
 
-Consumer `moduleNameMapper` entries override SDK entries. Consumer `setupFiles` and `setupFilesAfterEnv` entries run after the SDK setup; other top-level options replace their defaults.
+Consumer `moduleNameMapper` entries override SDK entries. Consumer `setupFiles` and `setupFilesAfterEnv` entries run
+after the SDK setup; other top-level options replace their defaults.
 
 ## Custom setup
 
-For a custom setup, call `setupLuaGlobals()` from `xray16/testing`. Import `setupXrayRuntime()` only from a Jest setup file or test setup module because it eagerly loads the mock runtime and calls `jest.mock`.
+For a custom setup, call `setupLuaGlobals()` from `xray16/testing`. Import `setupXrayRuntime()` only from a Jest setup
+file or test setup module because it eagerly loads the mock runtime and calls `jest.mock`.
 
 ```ts
 import { setupLuaGlobals } from "xray16/testing";
@@ -42,6 +47,7 @@ import { replaceFunctionMock, resetFunctionMock } from "xray16/testing/utils";
 
 ## Mocks
 
-`xray16/mocks` ships Lua-like runtime helpers and engine class mocks for Node-based tests — Lua table/map emulation, `string`/`math` shims backed by a real Lua VM, and `Mock*` classes for engine objects.
+`xray16/mocks` ships Lua-like runtime helpers and engine class mocks for Node-based tests — Lua table/map emulation,
+`string`/`math` shims backed by a real Lua VM, and `Mock*` classes for engine objects.
 
 See the [testing API reference](../api/testing/) and the [mocks API reference](../api/mocks/).

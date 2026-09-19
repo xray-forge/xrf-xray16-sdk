@@ -2,7 +2,8 @@
 
 Use `xray16/plugins/optimize` to rewrite returned ternary expressions into direct Lua `if` / `else` returns.
 
-Default TypeScriptToLua output for `return condition ? first : second` introduces a temporary local. This plugin avoids that local while preserving ternary behavior. It has no configuration.
+Default TypeScriptToLua output for `return condition ? first : second` introduces a temporary local. This plugin avoids
+that local while preserving ternary behavior. It has no configuration.
 
 ```ts
 export function pick(value: boolean): number {
@@ -24,10 +25,12 @@ end
 
 - Only `return` statements are affected.
 - Nested ternaries in return branches are expanded recursively.
-- Parentheses, `as` assertions, angle-bracket assertions, non-null assertions, and `satisfies` are unwrapped before checking for a ternary.
+- Parentheses, `as` assertions, angle-bracket assertions, non-null assertions, and `satisfies` are unwrapped before
+  checking for a ternary.
 - Branch expressions that emit preceding statements keep those statements inside the matching branch.
 - Assignment compatibility against the function return type is still checked.
 
 ## Limitations
 
-- Ternaries whose branches return Lua multiple values (`LuaMultiReturn`) are left to the default TypeScriptToLua transform. Those still emit the standard `unpack(condition and ({...}) or ({...}))` form.
+- Ternaries whose branches return Lua multiple values (`LuaMultiReturn`) are left to the default TypeScriptToLua
+  transform. Those still emit the standard `unpack(condition and ({...}) or ({...}))` form.

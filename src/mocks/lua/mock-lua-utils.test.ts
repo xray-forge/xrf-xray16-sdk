@@ -14,7 +14,15 @@ describe("lua conversion utils", () => {
     });
 
     it("should convert a native map to a JS array", () => {
-      expect(luaTableToArray(new Map([[1, 1], [2, 2], [3, 3]]))).toEqual([1, 2, 3]);
+      expect(
+        luaTableToArray(
+          new Map([
+            [1, 1],
+            [2, 2],
+            [3, 3],
+          ])
+        )
+      ).toEqual([1, 2, 3]);
     });
 
     it("should accept a plain JS array", () => {
@@ -72,7 +80,10 @@ describe("lua conversion utils", () => {
     });
 
     it("should turn a native map into an object recursively", () => {
-      const nested = new Map<string, unknown>([["a", 1], ["nested", new Map([["b", 2]])]]);
+      const nested = new Map<string, unknown>([
+        ["a", 1],
+        ["nested", new Map([["b", 2]])],
+      ]);
 
       expect(mapFromLua(nested)).toEqual({ a: 1, nested: { b: 2 } });
     });
