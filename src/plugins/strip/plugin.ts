@@ -2,20 +2,32 @@ import {
   type CallExpression,
   factory,
   type Identifier,
+  isIdentifier,
+  isPropertyAccessExpression,
+  isVariableDeclaration,
   type Node,
-  type PropertyAccessExpression,
+  SymbolFlags,
   SyntaxKind,
   type Type,
   type TypeChecker,
+  TypeFlags,
   type VariableDeclaration,
   type VariableDeclarationList,
 } from "typescript";
-import { type Plugin } from "typescript-to-lua";
+import { createNilLiteral, type Plugin } from "typescript-to-lua";
 
+import { createErrorDiagnosticFactory } from "../utils/diagnostics";
 import { isLuaLoggerEnabled } from "../utils/environment";
 
 const LUA_LOGGER_STRIP_TARGET: string = "LuaLogger";
 const ENGINE_MODULES: Array<string> = ["xray16", "xray16/alias"];
+
+const createLuaLoggerResultUsageError = createErrorDiagnosticFactory(
+  "LuaLogger call result cannot be used when Lua logs are stripped, the call is removed."
+);
+const createLuaLoggerReferenceError = createErrorDiagnosticFactory(
+  "LuaLogger variable cannot be referenced outside logger calls when Lua logs are stripped, its declaration is removed."
+);
 
 /**
  * Check whether a module specifier text (quotes included) points at a type-only engine module.
@@ -25,6 +37,45 @@ const ENGINE_MODULES: Array<string> = ["xray16", "xray16/alias"];
  */
 function isEngineModule(moduleSpecifier: string): boolean {
   return ENGINE_MODULES.includes(moduleSpecifier.slice(1, -1));
+}
+
+/**
+ * @param type - Type to check.
+ * @returns Whether the type is `LuaLogger`, which log stripping removes.
+ */
+function isLuaLoggerType(type: Type): boolean {
+  return type.symbol?.name === LUA_LOGGER_STRIP_TARGET;
+}
+
+/**
+ * @param node - Call to check.
+ * @param checker - Program type checker.
+ * @returns Whether the call is a method call on a `LuaLogger` variable, e.g. `logger.info("message")`.
+ */
+function isLuaLoggerCall(node: CallExpression, checker: TypeChecker): boolean {
+  return (
+    isPropertyAccessExpression(node.expression) &&
+    isIdentifier(node.expression.expression) &&
+    isLuaLoggerType(checker.getTypeAtLocation(node.expression.expression))
+  );
+}
+
+/**
+ * @param node - Identifier to check.
+ * @param checker - Program type checker.
+ * @returns Whether the identifier names a `LuaLogger` variable, whose declaration log stripping removes.
+ */
+function isStrippedLuaLoggerReference(node: Identifier, checker: TypeChecker): boolean {
+  let symbol = checker.getSymbolAtLocation(node);
+
+  if (symbol && symbol.flags & SymbolFlags.Alias) {
+    symbol = checker.getAliasedSymbol(symbol);
+  }
+
+  return (
+    isLuaLoggerType(checker.getTypeAtLocation(node)) &&
+    (symbol?.declarations ?? []).some((it: Node) => isVariableDeclaration(it))
+  );
 }
 
 /**
@@ -106,22 +157,37 @@ export function createPlugin(config: IStripPluginConfig = {}): Plugin {
         return context.superTransformStatements(statement);
       },
       [SyntaxKind.ExpressionStatement]: (statement, context) => {
-        if (shouldStripLuaLogger() && statement.expression?.kind === SyntaxKind.CallExpression) {
-          const expression: CallExpression = statement.expression as CallExpression;
-          const propertyAccess: PropertyAccessExpression = expression.expression as PropertyAccessExpression;
-
-          if (propertyAccess.expression?.kind === SyntaxKind.Identifier) {
-            const checker: TypeChecker = context.program.getTypeChecker();
-            const identifier: Identifier = propertyAccess.expression as Identifier;
-            const typeSymbol: Type = checker.getTypeAtLocation(identifier);
-
-            if (typeSymbol.symbol?.name === LUA_LOGGER_STRIP_TARGET) {
-              return undefined;
-            }
-          }
+        if (
+          shouldStripLuaLogger() &&
+          statement.expression?.kind === SyntaxKind.CallExpression &&
+          isLuaLoggerCall(statement.expression as CallExpression, context.program.getTypeChecker())
+        ) {
+          return undefined;
         }
 
         return context.superTransformStatements(statement);
+      },
+      // Logger calls outside statements, e.g. `return logger.info(...)` or `() => logger.info(...)`, keep the
+      // surrounding code valid as `nil`; a call whose result is actually used cannot be stripped.
+      [SyntaxKind.CallExpression]: (node, context) => {
+        const checker: TypeChecker = context.program.getTypeChecker();
+
+        if (shouldStripLuaLogger() && isLuaLoggerCall(node, checker)) {
+          if (!(checker.getTypeAtLocation(node).flags & (TypeFlags.Void | TypeFlags.Undefined))) {
+            context.diagnostics.push(createLuaLoggerResultUsageError(node));
+          }
+
+          return createNilLiteral(node);
+        }
+
+        return context.superTransformExpression(node);
+      },
+      [SyntaxKind.Identifier]: (node, context) => {
+        if (shouldStripLuaLogger() && isStrippedLuaLoggerReference(node, context.program.getTypeChecker())) {
+          context.diagnostics.push(createLuaLoggerReferenceError(node));
+        }
+
+        return context.superTransformExpression(node);
       },
     },
   };

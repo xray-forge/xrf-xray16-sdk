@@ -165,6 +165,223 @@ end
 return ____exports
 `);
     });
+
+    it("should keep early returns when stripping returned logger calls", () => {
+      const { errors, lua } = transpileWithPlugins(
+        {
+          "main.ts": `
+declare class LuaLogger { public info(message: string): void; }
+declare function getLogger(): LuaLogger;
+
+const logger = getLogger();
+
+export function run(enabled: boolean): number {
+  if (!enabled) {
+    return logger.info("skipped") as unknown as number;
+  }
+
+  return 1;
+}
+
+export function guard(enabled: boolean): void {
+  if (!enabled) {
+    return logger.info("skipped");
+  }
+
+  logger.info("removed");
+}
+`,
+        },
+        { plugins: [createPlugin({ luaLogger: true })] }
+      );
+
+      expect(errors).toEqual([]);
+      expect(lua["main.lua"]).toBe(`local ____exports = {}
+function ____exports.run(self, enabled)
+    if not enabled then
+        return nil
+    end
+    return 1
+end
+function ____exports.guard(self, enabled)
+    if not enabled then
+        return nil
+    end
+end
+return ____exports
+`);
+    });
+
+    it("should keep callbacks whose body is a logger call", () => {
+      const { errors, lua } = transpileWithPlugins(
+        {
+          "main.ts": `
+declare class LuaLogger { public info(message: string): void; }
+declare function getLogger(): LuaLogger;
+declare function extern(name: string, callback: () => void): void;
+
+export const logger = getLogger();
+
+extern("on_event", (): void => logger.info("event"));
+`,
+        },
+        { plugins: [createPlugin({ luaLogger: true })] }
+      );
+
+      expect(errors).toEqual([]);
+      expect(lua["main.lua"]).toBe(`local ____exports = {}
+extern(
+    nil,
+    "on_event",
+    function() return nil end
+)
+return ____exports
+`);
+    });
+
+    it("should strip calls on loggers imported from other modules", () => {
+      const { errors, lua } = transpileWithPlugins(
+        {
+          "log.ts": `
+declare class LuaLogger { public info(message: string): void; }
+declare function getLogger(): LuaLogger;
+
+export const logger = getLogger();
+`,
+          "main.ts": `
+import { logger } from "./log";
+
+export function run(): number {
+  logger.info("removed");
+
+  return 1;
+}
+`,
+        },
+        { plugins: [createPlugin({ luaLogger: true })] }
+      );
+
+      expect(errors).toEqual([]);
+      expect(lua["log.lua"]).toBe(`local ____exports = {}
+return ____exports
+`);
+      // The import binding stays as an unused nil local.
+      expect(lua["main.lua"]).toBe(`local ____exports = {}
+local ____log = require("log")
+local logger = ____log.logger
+function ____exports.run(self)
+    return 1
+end
+return ____exports
+`);
+    });
+
+    it("should report logger call results used as values", () => {
+      const { errors } = transpileWithPlugins(
+        {
+          "main.ts": `
+declare class LuaLogger { public getFullPrefix(): string; }
+declare function getLogger(): LuaLogger;
+
+const logger = getLogger();
+
+export function run(): string {
+  return \`\${logger.getFullPrefix()} [object]\`;
+}
+`,
+        },
+        { plugins: [createPlugin({ luaLogger: true })] }
+      );
+
+      expect(errors).toEqual(["LuaLogger call result cannot be used when Lua logs are stripped, the call is removed."]);
+    });
+
+    it("should report logger variables referenced outside logger calls", () => {
+      const { errors } = transpileWithPlugins(
+        {
+          "main.ts": `
+declare class LuaLogger { public info(message: string): void; }
+declare function getLogger(): LuaLogger;
+declare function use(logger: LuaLogger): void;
+
+const logger = getLogger();
+
+export function run(): void {
+  use(logger);
+}
+`,
+        },
+        { plugins: [createPlugin({ luaLogger: true })] }
+      );
+
+      expect(errors).toEqual([
+        "LuaLogger variable cannot be referenced outside logger calls when Lua logs are stripped, its declaration is removed.",
+      ]);
+    });
+
+    it("should keep logger parameters, which are not stripped declarations", () => {
+      const { errors, lua } = transpileWithPlugins(
+        {
+          "main.ts": `
+declare class LuaLogger { public info(message: string): void; }
+declare function use(logger: LuaLogger): void;
+
+export function run(logger: LuaLogger): void {
+  use(logger);
+  logger.info("removed");
+}
+`,
+        },
+        { plugins: [createPlugin({ luaLogger: true })] }
+      );
+
+      expect(errors).toEqual([]);
+      expect(lua["main.lua"]).toBe(`local ____exports = {}
+function ____exports.run(self, logger)
+    use(nil, logger)
+end
+return ____exports
+`);
+    });
+
+    it("should keep returned and callback logger calls when luaLogger is disabled", () => {
+      const { errors, lua } = transpileWithPlugins(
+        {
+          "main.ts": `
+declare class LuaLogger { public info(message: string): void; }
+declare function getLogger(): LuaLogger;
+declare function extern(name: string, callback: () => void): void;
+
+const logger = getLogger();
+
+extern("on_event", (): void => logger.info("event"));
+
+export function guard(enabled: boolean): void {
+  if (!enabled) {
+    return logger.info("skipped");
+  }
+}
+`,
+        },
+        { plugins: [createPlugin({ luaLogger: false })] }
+      );
+
+      expect(errors).toEqual([]);
+      expect(lua["main.lua"]).toBe(`local ____exports = {}
+local logger = getLogger(nil)
+extern(
+    nil,
+    "on_event",
+    function() return logger:info("event") end
+)
+function ____exports.guard(self, enabled)
+    if not enabled then
+        return logger:info("skipped")
+    end
+end
+return ____exports
+`);
+    });
   });
 
   describe("engineImports", () => {
