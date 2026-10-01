@@ -132,7 +132,40 @@ export const mockString = {
     return result;
   },
   gfind: (target: string, pattern: string) => mockString.gmatch(target, pattern),
-  match: (target: string, pattern: string) => mockString.gmatch(target, pattern),
+  /**
+   * As Lua `string.match`: the captures of the first match, or the whole first match without captures.
+   * Returns an empty list when nothing matches, as the engine returns a single `nil`.
+   */
+  match: (target: string, pattern: string, init?: number): Array<string | number> => {
+    const L: ILuaState = lauxlib.luaL_newstate();
+
+    lualib.luaL_openlibs(L);
+
+    lua.lua_getglobal(L, "string");
+    lua.lua_getfield(L, -1, "match");
+    lua.lua_pushstring(L, to_luastring(String(target)));
+    lua.lua_pushstring(L, to_luastring(pattern));
+
+    if (typeof init === "number") {
+      lua.lua_pushnumber(L, init);
+      lua.lua_call(L, 3, -1);
+    } else {
+      lua.lua_call(L, 2, -1);
+    }
+
+    const result: Array<string | number> = [];
+
+    // Values above the `string` table are the results, position captures being numbers.
+    for (let index = 2; index <= lua.lua_gettop(L); index++) {
+      if (lua.lua_type(L, index) === lua.LUA_TNUMBER) {
+        result.push(lua.lua_tonumber(L, index));
+      } else if (!lua.lua_isnil(L, index)) {
+        result.push(to_jsstring(lua.lua_tostring(L, index)));
+      }
+    }
+
+    return result;
+  },
   gmatch: (target: string, pattern: string): Array<string> => {
     const L: ILuaState = lauxlib.luaL_newstate();
 

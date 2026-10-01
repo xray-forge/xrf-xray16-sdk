@@ -27,6 +27,8 @@ declare module "fengari" {
     lua_tonumber(state: ILuaState, index: number): number;
     lua_gettop(state: ILuaState): number;
     lua_pushboolean(state: ILuaState, value: boolean): unknown;
+    lua_type(state: ILuaState, index: number): number;
+    readonly LUA_TNUMBER: number;
   }
 
   interface ILualib {

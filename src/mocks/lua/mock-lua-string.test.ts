@@ -39,6 +39,16 @@ describe("mockString (fengari-backed)", () => {
     expect(mockString.gsub(null as never, "a", "b")).toEqual([null, null, null]);
   });
 
+  it("should match only the first occurrence as Lua does", () => {
+    expect(mockString.match("1000_11", "[^_]+")).toEqual(["1000"]);
+    expect(mockString.match("1000_11", "^[^_]+")).toEqual(["1000"]);
+    expect(mockString.match("key = value", "^(%w+)%s*=%s*(%w+)$")).toEqual(["key", "value"]);
+    expect(mockString.match("abc", "()b()")).toEqual([2, 3]);
+    expect(mockString.match("11 22", "%d+", 3)).toEqual(["22"]);
+    expect(mockString.match("abc", "%d+")).toEqual([]);
+    expect(mockString.match("abc", "^b")).toEqual([]);
+  });
+
   it("should gmatch and gfind collecting all matches", () => {
     expect(mockString.gmatch("55", "%d+")).toEqual(["55"]);
     expect(mockString.gmatch("11 2 33 4", "%d+")).toEqual(["11", "2", "33", "4"]);
