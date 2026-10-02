@@ -5,10 +5,11 @@ declare module "xray16" {
    * Use `game.get_game_time()` for the current in-game time and `time_global()` for real elapsed milliseconds.
    *
    * @source C++ class CTime
-   * @customConstructor CTime
+   * @customConstructor game.CTime
    * @group xr_time
    * @remarks
    * Methods such as `add`, `sub`, `set`, and `setHMS` mutate the current instance.
+   * The engine registers the class only in the `game` module, so `new CTime()` compiles to `game.CTime()`.
    */
   export class CTime extends EngineBinding {
     /**

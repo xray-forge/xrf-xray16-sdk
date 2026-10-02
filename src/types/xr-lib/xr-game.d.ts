@@ -143,7 +143,7 @@ declare module "xray16" {
      * Create a new game time value.
      *
      * @remarks
-     * This is the same constructor exported as `CTime`.
+     * The only place the engine registers `CTime`; `new CTime()` compiles to this call.
      *
      * @returns Empty `CTime` instance.
      */
