@@ -182,7 +182,7 @@ export { mockCallbacks } from "./xray/mock-callbacks";
 export { mockClsid } from "./xray/mock-clsid";
 export { mockCommandLine } from "./xray/mock-command-line";
 export { mockDikKeys } from "./xray/mock-dik-keys";
-export { MockKeyBindings, mockDikToBind } from "./xray/mock-key-bindings";
+export { MockKeyBindings, MockKeyBindingsContext, mockDikToBind } from "./xray/mock-key-bindings";
 export { mockGameInterface } from "./xray/mock-game";
 export { mockLevelInterface } from "./xray/mock-level";
 export { mockMainMenuInterface } from "./xray/mock-main-menu-interface";

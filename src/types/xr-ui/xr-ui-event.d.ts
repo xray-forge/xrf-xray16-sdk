@@ -1234,171 +1234,628 @@ declare module "xray16" {
     /**
      * Engine enum value for `key_bindings.kACCEL`.
      */
-    public static readonly kACCEL: 7;
+    public static readonly kACCEL: 15;
+    /**
+     * Engine enum value for `key_bindings.kACTIVE_JOBS`.
+     */
+    public static readonly kACTIVE_JOBS: 58;
+    /**
+     * Engine enum value for `key_bindings.kALIFE_CMD`.
+     */
+    public static readonly kALIFE_CMD: 87;
+    /**
+     * Engine enum value for `key_bindings.kARTEFACT`.
+     */
+    public static readonly kARTEFACT: 34;
     /**
      * Engine enum value for `key_bindings.kBACK`.
      */
-    public static readonly kBACK: 10;
+    public static readonly kBACK: 7;
     /**
      * Engine enum value for `key_bindings.kBUY`.
      */
-    public static readonly kBUY: 52;
+    public static readonly kBUY: 55;
     /**
      * Engine enum value for `key_bindings.kCAM_1`.
      */
-    public static readonly kCAM_1: 16;
+    public static readonly kCAM_1: 18;
     /**
      * Engine enum value for `key_bindings.kCAM_2`.
      */
-    public static readonly kCAM_2: 17;
+    public static readonly kCAM_2: 19;
     /**
      * Engine enum value for `key_bindings.kCAM_3`.
      */
-    public static readonly kCAM_3: 18;
+    public static readonly kCAM_3: 20;
+    /**
+     * Engine enum value for `key_bindings.kCAM_4`.
+     */
+    public static readonly kCAM_4: 21;
+    /**
+     * Engine enum value for `key_bindings.kCAM_AUTOAIM`.
+     */
+    public static readonly kCAM_AUTOAIM: 24;
     /**
      * Engine enum value for `key_bindings.kCAM_ZOOM_IN`.
      */
-    public static readonly kCAM_ZOOM_IN: 20;
+    public static readonly kCAM_ZOOM_IN: 22;
     /**
      * Engine enum value for `key_bindings.kCAM_ZOOM_OUT`.
      */
-    public static readonly kCAM_ZOOM_OUT: 21;
+    public static readonly kCAM_ZOOM_OUT: 23;
     /**
      * Engine enum value for `key_bindings.kCHAT`.
      */
-    public static readonly kCHAT: 46;
+    public static readonly kCHAT: 48;
+    /**
+     * Engine enum value for `key_bindings.kCHAT_TEAM`.
+     */
+    public static readonly kCHAT_TEAM: 49;
     /**
      * Engine enum value for `key_bindings.kCONSOLE`.
      */
-    public static readonly kCONSOLE: 50;
+    public static readonly kCONSOLE: 53;
+    /**
+     * Engine enum value for `key_bindings.kCONTACTS`.
+     */
+    public static readonly kCONTACTS: 60;
     /**
      * Engine enum value for `key_bindings.kCROUCH`.
      */
-    public static readonly kCROUCH: 5;
+    public static readonly kCROUCH: 13;
+    /**
+     * Engine enum value for `key_bindings.kCROUCH_TOGGLE`.
+     */
+    public static readonly kCROUCH_TOGGLE: 14;
+    /**
+     * Engine enum value for `key_bindings.kCUSTOM1`.
+     */
+    public static readonly kCUSTOM1: 88;
+    /**
+     * Engine enum value for `key_bindings.kCUSTOM10`.
+     */
+    public static readonly kCUSTOM10: 97;
+    /**
+     * Engine enum value for `key_bindings.kCUSTOM11`.
+     */
+    public static readonly kCUSTOM11: 98;
+    /**
+     * Engine enum value for `key_bindings.kCUSTOM12`.
+     */
+    public static readonly kCUSTOM12: 99;
+    /**
+     * Engine enum value for `key_bindings.kCUSTOM13`.
+     */
+    public static readonly kCUSTOM13: 100;
+    /**
+     * Engine enum value for `key_bindings.kCUSTOM14`.
+     */
+    public static readonly kCUSTOM14: 101;
+    /**
+     * Engine enum value for `key_bindings.kCUSTOM15`.
+     */
+    public static readonly kCUSTOM15: 102;
+    /**
+     * Engine enum value for `key_bindings.kCUSTOM2`.
+     */
+    public static readonly kCUSTOM2: 89;
+    /**
+     * Engine enum value for `key_bindings.kCUSTOM3`.
+     */
+    public static readonly kCUSTOM3: 90;
+    /**
+     * Engine enum value for `key_bindings.kCUSTOM4`.
+     */
+    public static readonly kCUSTOM4: 91;
+    /**
+     * Engine enum value for `key_bindings.kCUSTOM5`.
+     */
+    public static readonly kCUSTOM5: 92;
+    /**
+     * Engine enum value for `key_bindings.kCUSTOM6`.
+     */
+    public static readonly kCUSTOM6: 93;
+    /**
+     * Engine enum value for `key_bindings.kCUSTOM7`.
+     */
+    public static readonly kCUSTOM7: 94;
+    /**
+     * Engine enum value for `key_bindings.kCUSTOM8`.
+     */
+    public static readonly kCUSTOM8: 95;
+    /**
+     * Engine enum value for `key_bindings.kCUSTOM9`.
+     */
+    public static readonly kCUSTOM9: 96;
+    /**
+     * Engine enum value for `key_bindings.kDETECTOR`.
+     */
+    public static readonly kDETECTOR: 27;
     /**
      * Engine enum value for `key_bindings.kDOWN`.
      */
-    public static readonly kDOWN: 3;
+    public static readonly kDOWN: 4;
     /**
      * Engine enum value for `key_bindings.kDROP`.
      */
-    public static readonly kDROP: 43;
+    public static readonly kDROP: 45;
+    /**
+     * Engine enum value for `key_bindings.kEDITOR`.
+     */
+    public static readonly kEDITOR: 110;
+    /**
+     * Engine enum value for `key_bindings.kENGINE`.
+     */
+    public static readonly kENGINE: 17;
+    /**
+     * Engine enum value for `key_bindings.kENTER`.
+     */
+    public static readonly kENTER: 51;
+    /**
+     * Engine enum value for `key_bindings.kEXT_1`.
+     */
+    public static readonly kEXT_1: 61;
     /**
      * Engine enum value for `key_bindings.kFWD`.
      */
-    public static readonly kFWD: 9;
+    public static readonly kFWD: 6;
     /**
      * Engine enum value for `key_bindings.kINVENTORY`.
      */
-    public static readonly kINVENTORY: 51;
+    public static readonly kINVENTORY: 54;
     /**
      * Engine enum value for `key_bindings.kJUMP`.
      */
-    public static readonly kJUMP: 4;
+    public static readonly kJUMP: 12;
+    /**
+     * Engine enum value for `key_bindings.kKICK`.
+     */
+    public static readonly kKICK: 109;
     /**
      * Engine enum value for `key_bindings.kLEFT`.
      */
-    public static readonly kLEFT: 0;
+    public static readonly kLEFT: 1;
+    /**
+     * Engine enum value for `key_bindings.kLOOK_AROUND`.
+     */
+    public static readonly kLOOK_AROUND: 0;
     /**
      * Engine enum value for `key_bindings.kL_LOOKOUT`.
      */
-    public static readonly kL_LOOKOUT: 13;
+    public static readonly kL_LOOKOUT: 10;
     /**
      * Engine enum value for `key_bindings.kL_STRAFE`.
      */
-    public static readonly kL_STRAFE: 11;
+    public static readonly kL_STRAFE: 8;
+    /**
+     * Engine enum value for `key_bindings.kMAP`.
+     */
+    public static readonly kMAP: 59;
+    /**
+     * Engine enum value for `key_bindings.kMOVE_AROUND`.
+     */
+    public static readonly kMOVE_AROUND: 5;
+    /**
+     * Engine enum value for `key_bindings.kNEXT_SLOT`.
+     */
+    public static readonly kNEXT_SLOT: 67;
     /**
      * Engine enum value for `key_bindings.kNIGHT_VISION`.
      */
-    public static readonly kNIGHT_VISION: 24;
+    public static readonly kNIGHT_VISION: 26;
+    /**
+     * Engine enum value for `key_bindings.kPDA_FILTER_TOGGLE`.
+     */
+    public static readonly kPDA_FILTER_TOGGLE: 145;
+    /**
+     * Engine enum value for `key_bindings.kPDA_MAP_MOVE`.
+     */
+    public static readonly kPDA_MAP_MOVE: 135;
+    /**
+     * Engine enum value for `key_bindings.kPDA_MAP_MOVE_DOWN`.
+     */
+    public static readonly kPDA_MAP_MOVE_DOWN: 139;
+    /**
+     * Engine enum value for `key_bindings.kPDA_MAP_MOVE_LEFT`.
+     */
+    public static readonly kPDA_MAP_MOVE_LEFT: 136;
+    /**
+     * Engine enum value for `key_bindings.kPDA_MAP_MOVE_RIGHT`.
+     */
+    public static readonly kPDA_MAP_MOVE_RIGHT: 137;
+    /**
+     * Engine enum value for `key_bindings.kPDA_MAP_MOVE_UP`.
+     */
+    public static readonly kPDA_MAP_MOVE_UP: 138;
+    /**
+     * Engine enum value for `key_bindings.kPDA_MAP_SHOW_ACTOR`.
+     */
+    public static readonly kPDA_MAP_SHOW_ACTOR: 143;
+    /**
+     * Engine enum value for `key_bindings.kPDA_MAP_SHOW_LEGEND`.
+     */
+    public static readonly kPDA_MAP_SHOW_LEGEND: 144;
+    /**
+     * Engine enum value for `key_bindings.kPDA_MAP_ZOOM_IN`.
+     */
+    public static readonly kPDA_MAP_ZOOM_IN: 140;
+    /**
+     * Engine enum value for `key_bindings.kPDA_MAP_ZOOM_OUT`.
+     */
+    public static readonly kPDA_MAP_ZOOM_OUT: 141;
+    /**
+     * Engine enum value for `key_bindings.kPDA_MAP_ZOOM_RESET`.
+     */
+    public static readonly kPDA_MAP_ZOOM_RESET: 142;
+    /**
+     * Engine enum value for `key_bindings.kPDA_TAB1`.
+     */
+    public static readonly kPDA_TAB1: 103;
+    /**
+     * Engine enum value for `key_bindings.kPDA_TAB2`.
+     */
+    public static readonly kPDA_TAB2: 104;
+    /**
+     * Engine enum value for `key_bindings.kPDA_TAB3`.
+     */
+    public static readonly kPDA_TAB3: 105;
+    /**
+     * Engine enum value for `key_bindings.kPDA_TAB4`.
+     */
+    public static readonly kPDA_TAB4: 106;
+    /**
+     * Engine enum value for `key_bindings.kPDA_TAB5`.
+     */
+    public static readonly kPDA_TAB5: 107;
+    /**
+     * Engine enum value for `key_bindings.kPDA_TAB6`.
+     */
+    public static readonly kPDA_TAB6: 108;
+    /**
+     * Engine enum value for `key_bindings.kPREV_SLOT`.
+     */
+    public static readonly kPREV_SLOT: 68;
+    /**
+     * Engine enum value for `key_bindings.kQUICK_LOAD`.
+     */
+    public static readonly kQUICK_LOAD: 86;
+    /**
+     * Engine enum value for `key_bindings.kQUICK_SAVE`.
+     */
+    public static readonly kQUICK_SAVE: 85;
+    /**
+     * Engine enum value for `key_bindings.kQUICK_USE_1`.
+     */
+    public static readonly kQUICK_USE_1: 81;
+    /**
+     * Engine enum value for `key_bindings.kQUICK_USE_2`.
+     */
+    public static readonly kQUICK_USE_2: 82;
+    /**
+     * Engine enum value for `key_bindings.kQUICK_USE_3`.
+     */
+    public static readonly kQUICK_USE_3: 83;
+    /**
+     * Engine enum value for `key_bindings.kQUICK_USE_4`.
+     */
+    public static readonly kQUICK_USE_4: 84;
     /**
      * Engine enum value for `key_bindings.kQUIT`.
      */
-    public static readonly kQUIT: 49;
+    public static readonly kQUIT: 52;
     /**
      * Engine enum value for `key_bindings.kRIGHT`.
      */
-    public static readonly kRIGHT: 1;
+    public static readonly kRIGHT: 2;
     /**
      * Engine enum value for `key_bindings.kR_LOOKOUT`.
      */
-    public static readonly kR_LOOKOUT: 14;
+    public static readonly kR_LOOKOUT: 11;
     /**
      * Engine enum value for `key_bindings.kR_STRAFE`.
      */
-    public static readonly kR_STRAFE: 12;
+    public static readonly kR_STRAFE: 9;
     /**
      * Engine enum value for `key_bindings.kSCORES`.
      */
-    public static readonly kSCORES: 45;
+    public static readonly kSCORES: 47;
     /**
      * Engine enum value for `key_bindings.kSCREENSHOT`.
      */
-    public static readonly kSCREENSHOT: 48;
+    public static readonly kSCREENSHOT: 50;
+    /**
+     * Engine enum value for `key_bindings.kSHOW_ADMIN_MENU`.
+     */
+    public static readonly kSHOW_ADMIN_MENU: 63;
     /**
      * Engine enum value for `key_bindings.kSKIN`.
      */
-    public static readonly kSKIN: 53;
+    public static readonly kSKIN: 56;
+    /**
+     * Engine enum value for `key_bindings.kSPEECH_MENU_0`.
+     */
+    public static readonly kSPEECH_MENU_0: 69;
+    /**
+     * Engine enum value for `key_bindings.kSPEECH_MENU_1`.
+     */
+    public static readonly kSPEECH_MENU_1: 70;
+    /**
+     * Engine enum value for `key_bindings.kSPEECH_MENU_2`.
+     */
+    public static readonly kSPEECH_MENU_2: 71;
+    /**
+     * Engine enum value for `key_bindings.kSPEECH_MENU_3`.
+     */
+    public static readonly kSPEECH_MENU_3: 72;
+    /**
+     * Engine enum value for `key_bindings.kSPEECH_MENU_4`.
+     */
+    public static readonly kSPEECH_MENU_4: 73;
+    /**
+     * Engine enum value for `key_bindings.kSPEECH_MENU_5`.
+     */
+    public static readonly kSPEECH_MENU_5: 74;
+    /**
+     * Engine enum value for `key_bindings.kSPEECH_MENU_6`.
+     */
+    public static readonly kSPEECH_MENU_6: 75;
+    /**
+     * Engine enum value for `key_bindings.kSPEECH_MENU_7`.
+     */
+    public static readonly kSPEECH_MENU_7: 76;
+    /**
+     * Engine enum value for `key_bindings.kSPEECH_MENU_8`.
+     */
+    public static readonly kSPEECH_MENU_8: 77;
+    /**
+     * Engine enum value for `key_bindings.kSPEECH_MENU_9`.
+     */
+    public static readonly kSPEECH_MENU_9: 78;
+    /**
+     * Engine enum value for `key_bindings.kSPRINT_TOGGLE`.
+     */
+    public static readonly kSPRINT_TOGGLE: 16;
+    /**
+     * Engine enum value for `key_bindings.kTALK_LOG_SCROLL`.
+     */
+    public static readonly kTALK_LOG_SCROLL: 147;
+    /**
+     * Engine enum value for `key_bindings.kTALK_LOG_SCROLL_DOWN`.
+     */
+    public static readonly kTALK_LOG_SCROLL_DOWN: 149;
+    /**
+     * Engine enum value for `key_bindings.kTALK_LOG_SCROLL_UP`.
+     */
+    public static readonly kTALK_LOG_SCROLL_UP: 148;
+    /**
+     * Engine enum value for `key_bindings.kTALK_SWITCH_TO_TRADE`.
+     */
+    public static readonly kTALK_SWITCH_TO_TRADE: 146;
     /**
      * Engine enum value for `key_bindings.kTEAM`.
      */
-    public static readonly kTEAM: 54;
+    public static readonly kTEAM: 57;
     /**
      * Engine enum value for `key_bindings.kTORCH`.
      */
-    public static readonly kTORCH: 23;
+    public static readonly kTORCH: 25;
+    /**
+     * Engine enum value for `key_bindings.kUI_ACCEPT`.
+     */
+    public static readonly kUI_ACCEPT: 119;
+    /**
+     * Engine enum value for `key_bindings.kUI_ACTION_1`.
+     */
+    public static readonly kUI_ACTION_1: 121;
+    /**
+     * Engine enum value for `key_bindings.kUI_ACTION_2`.
+     */
+    public static readonly kUI_ACTION_2: 122;
+    /**
+     * Engine enum value for `key_bindings.kUI_BACK`.
+     */
+    public static readonly kUI_BACK: 120;
+    /**
+     * Engine enum value for `key_bindings.kUI_BUTTON_0`.
+     */
+    public static readonly kUI_BUTTON_0: 134;
+    /**
+     * Engine enum value for `key_bindings.kUI_BUTTON_1`.
+     */
+    public static readonly kUI_BUTTON_1: 125;
+    /**
+     * Engine enum value for `key_bindings.kUI_BUTTON_2`.
+     */
+    public static readonly kUI_BUTTON_2: 126;
+    /**
+     * Engine enum value for `key_bindings.kUI_BUTTON_3`.
+     */
+    public static readonly kUI_BUTTON_3: 127;
+    /**
+     * Engine enum value for `key_bindings.kUI_BUTTON_4`.
+     */
+    public static readonly kUI_BUTTON_4: 128;
+    /**
+     * Engine enum value for `key_bindings.kUI_BUTTON_5`.
+     */
+    public static readonly kUI_BUTTON_5: 129;
+    /**
+     * Engine enum value for `key_bindings.kUI_BUTTON_6`.
+     */
+    public static readonly kUI_BUTTON_6: 130;
+    /**
+     * Engine enum value for `key_bindings.kUI_BUTTON_7`.
+     */
+    public static readonly kUI_BUTTON_7: 131;
+    /**
+     * Engine enum value for `key_bindings.kUI_BUTTON_8`.
+     */
+    public static readonly kUI_BUTTON_8: 132;
+    /**
+     * Engine enum value for `key_bindings.kUI_BUTTON_9`.
+     */
+    public static readonly kUI_BUTTON_9: 133;
+    /**
+     * Engine enum value for `key_bindings.kUI_CLICK_1`.
+     */
+    public static readonly kUI_CLICK_1: 117;
+    /**
+     * Engine enum value for `key_bindings.kUI_CLICK_2`.
+     */
+    public static readonly kUI_CLICK_2: 118;
+    /**
+     * Engine enum value for `key_bindings.kUI_MOVE`.
+     */
+    public static readonly kUI_MOVE: 111;
+    /**
+     * Engine enum value for `key_bindings.kUI_MOVE_DOWN`.
+     */
+    public static readonly kUI_MOVE_DOWN: 115;
+    /**
+     * Engine enum value for `key_bindings.kUI_MOVE_LEFT`.
+     */
+    public static readonly kUI_MOVE_LEFT: 112;
+    /**
+     * Engine enum value for `key_bindings.kUI_MOVE_RIGHT`.
+     */
+    public static readonly kUI_MOVE_RIGHT: 113;
+    /**
+     * Engine enum value for `key_bindings.kUI_MOVE_SECONDARY`.
+     */
+    public static readonly kUI_MOVE_SECONDARY: 116;
+    /**
+     * Engine enum value for `key_bindings.kUI_MOVE_UP`.
+     */
+    public static readonly kUI_MOVE_UP: 114;
+    /**
+     * Engine enum value for `key_bindings.kUI_TAB_NEXT`.
+     */
+    public static readonly kUI_TAB_NEXT: 124;
+    /**
+     * Engine enum value for `key_bindings.kUI_TAB_PREV`.
+     */
+    public static readonly kUI_TAB_PREV: 123;
     /**
      * Engine enum value for `key_bindings.kUP`.
      */
-    public static readonly kUP: 2;
+    public static readonly kUP: 3;
     /**
      * Engine enum value for `key_bindings.kUSE`.
      */
-    public static readonly kUSE: 44;
+    public static readonly kUSE: 46;
+    /**
+     * Engine enum value for `key_bindings.kUSE_BANDAGE`.
+     */
+    public static readonly kUSE_BANDAGE: 79;
+    /**
+     * Engine enum value for `key_bindings.kUSE_MEDKIT`.
+     */
+    public static readonly kUSE_MEDKIT: 80;
+    /**
+     * Engine enum value for `key_bindings.kVOTE`.
+     */
+    public static readonly kVOTE: 64;
+    /**
+     * Engine enum value for `key_bindings.kVOTENO`.
+     */
+    public static readonly kVOTENO: 66;
+    /**
+     * Engine enum value for `key_bindings.kVOTEYES`.
+     */
+    public static readonly kVOTEYES: 65;
+    /**
+     * Engine enum value for `key_bindings.kVOTE_BEGIN`.
+     */
+    public static readonly kVOTE_BEGIN: 62;
     /**
      * Engine enum value for `key_bindings.kWPN_1`.
      */
-    public static readonly kWPN_1: 26;
+    public static readonly kWPN_1: 28;
     /**
      * Engine enum value for `key_bindings.kWPN_2`.
      */
-    public static readonly kWPN_2: 27;
+    public static readonly kWPN_2: 29;
     /**
      * Engine enum value for `key_bindings.kWPN_3`.
      */
-    public static readonly kWPN_3: 28;
+    public static readonly kWPN_3: 30;
     /**
      * Engine enum value for `key_bindings.kWPN_4`.
      */
-    public static readonly kWPN_4: 29;
+    public static readonly kWPN_4: 31;
     /**
      * Engine enum value for `key_bindings.kWPN_5`.
      */
-    public static readonly kWPN_5: 30;
+    public static readonly kWPN_5: 32;
     /**
      * Engine enum value for `key_bindings.kWPN_6`.
      */
-    public static readonly kWPN_6: 31;
+    public static readonly kWPN_6: 33;
     /**
      * Engine enum value for `key_bindings.kWPN_FIRE`.
      */
-    public static readonly kWPN_FIRE: 34;
+    public static readonly kWPN_FIRE: 36;
+    /**
+     * Engine enum value for `key_bindings.kWPN_FIREMODE_NEXT`.
+     */
+    public static readonly kWPN_FIREMODE_NEXT: 43;
+    /**
+     * Engine enum value for `key_bindings.kWPN_FIREMODE_PREV`.
+     */
+    public static readonly kWPN_FIREMODE_PREV: 42;
     /**
      * Engine enum value for `key_bindings.kWPN_FUNC`.
      */
-    public static readonly kWPN_FUNC: 39;
+    public static readonly kWPN_FUNC: 41;
     /**
      * Engine enum value for `key_bindings.kWPN_NEXT`.
      */
-    public static readonly kWPN_NEXT: 33;
+    public static readonly kWPN_NEXT: 35;
     /**
      * Engine enum value for `key_bindings.kWPN_RELOAD`.
      */
-    public static readonly kWPN_RELOAD: 38;
+    public static readonly kWPN_RELOAD: 40;
     /**
      * Engine enum value for `key_bindings.kWPN_ZOOM`.
      */
-    public static readonly kWPN_ZOOM: 35;
+    public static readonly kWPN_ZOOM: 37;
+    /**
+     * Engine enum value for `key_bindings.kWPN_ZOOM_DEC`.
+     */
+    public static readonly kWPN_ZOOM_DEC: 39;
+    /**
+     * Engine enum value for `key_bindings.kWPN_ZOOM_INC`.
+     */
+    public static readonly kWPN_ZOOM_INC: 38;
+  }
+
+  /**
+   * Input contexts a key binding applies in.
+   *
+   * @source C++ class key_bindings_context
+   * @customConstructor key_bindings_context
+   * @group xr_ui_event
+   *
+   * @remarks
+   * Pass one to `dik_to_bind()` to resolve a key the way a UI, PDA or talk window does.
+   */
+  export class key_bindings_context {
+    /**
+     * Engine enum value for `key_bindings_context.undefined`.
+     */
+    public static readonly undefined: 0;
+    /**
+     * Engine enum value for `key_bindings_context.ui`.
+     */
+    public static readonly ui: 1;
+    /**
+     * Engine enum value for `key_bindings_context.pda`.
+     */
+    public static readonly pda: 2;
+    /**
+     * Engine enum value for `key_bindings_context.talk`.
+     */
+    public static readonly talk: 3;
   }
 
   /**

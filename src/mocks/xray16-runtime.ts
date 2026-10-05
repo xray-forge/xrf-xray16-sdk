@@ -70,6 +70,7 @@ export {
   MockCOptionsManager as COptionsManager,
   mockDikKeys as DIK_keys,
   MockKeyBindings as key_bindings,
+  MockKeyBindingsContext as key_bindings_context,
   MockFbox as Fbox,
   MockFileSystem as FS,
   MockFrect as Frect,
