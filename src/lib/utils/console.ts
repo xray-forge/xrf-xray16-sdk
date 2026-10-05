@@ -1,4 +1,5 @@
 import { get_console } from "xray16";
+import { $isNotNil } from "xray16/macros";
 
 import { type TName } from "../scalars";
 import { type AnyArgs } from "../types";
@@ -22,4 +23,15 @@ export function executeConsoleCommand(command: TName, ...args: AnyArgs): void {
  */
 export function getConsoleFloatCommand<T extends number = number>(command: TName, ...args: AnyArgs): T {
   return get_console().get_float(args.length > 0 ? `${command} ${table.concat(args, " ")}` : command) as T;
+}
+
+/**
+ * Whether the running engine registers a console command. Many debug commands exist only outside gold builds, and
+ * `ai_dbg_*` only in Debug and Mixed ones.
+ *
+ * @param command - Console command name.
+ * @returns Whether the console knows the command.
+ */
+export function isConsoleCommandAvailable(command: TName): boolean {
+  return $isNotNil(get_console().get_string(command));
 }
