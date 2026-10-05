@@ -1,7 +1,6 @@
 name: Deploy Docs
 
 env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
   npm_config_audit: "false"
   npm_config_fund: "false"
 
@@ -24,10 +23,10 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Install Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: "npm"
@@ -39,7 +38,7 @@ jobs:
         run: npm run docs
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
           path: target/docs
 
@@ -54,4 +53,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

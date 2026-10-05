@@ -22,10 +22,10 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Install Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: latest
           cache: "npm"
@@ -66,7 +66,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Download package tarball
         uses: actions/download-artifact@v8
@@ -74,7 +74,7 @@ jobs:
           name: package
 
       - name: Update nightly tag
-        uses: EndBug/latest-tag@latest
+        uses: EndBug/latest-tag@v1
         id: update-nightly-tag
         with:
           ref: nightly
